@@ -1,6 +1,6 @@
 import {Usuarios} from './arrays.js'
 
-let Nuevousuario='Maite'
+let Nuevousuario=prompt("Ingrese Nombre del Usuario: ")
 
 function buscar(){
     return new Promise((resolve,reject)=>{
@@ -9,10 +9,10 @@ function buscar(){
         }
         
         const busqueda= Usuarios.find(i=> i.Usuario.toLowerCase() === Nuevousuario.toLowerCase())
-       
+        
         // --> Luego de 3s mostramos el arrays
         setTimeout(() => {
-            resolve(Usuarios)
+           busqueda ? resolve(busqueda) : reject('Usuario No Encontrado')
         }, 3000);
     })
 }
